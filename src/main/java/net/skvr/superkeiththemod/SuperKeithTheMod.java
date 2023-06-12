@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.skvr.superkeiththemod.items.ModCreativeModeTabs;
 import net.skvr.superkeiththemod.items.ModItems;
 import org.slf4j.Logger;
 
@@ -45,6 +46,9 @@ public class SuperKeithTheMod
 
     private void addCreative(CreativeModeTabEvent.BuildContents event)
     {
+        if (event.getTab() == ModCreativeModeTabs.SUPERKEITH_TAB){
+            event.accept(ModItems.BLANK_CIRCUIT_BOARD);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
