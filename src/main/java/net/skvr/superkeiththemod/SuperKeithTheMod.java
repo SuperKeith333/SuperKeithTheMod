@@ -1,6 +1,7 @@
 package net.skvr.superkeiththemod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -15,6 +16,9 @@ import net.skvr.superkeiththemod.block.ModBlocks;
 import net.skvr.superkeiththemod.entity.ModTileEnitity;
 import net.skvr.superkeiththemod.items.ModCreativeModeTabs;
 import net.skvr.superkeiththemod.items.ModItems;
+import net.skvr.superkeiththemod.recipe.ModRecipes;
+import net.skvr.superkeiththemod.screen.ModMenuTypes;
+import net.skvr.superkeiththemod.screen.SolderingStationScreen;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -35,6 +39,8 @@ public class SuperKeithTheMod
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModTileEnitity.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
 
         // Register ourselves for server and other game events we are interested in
@@ -72,6 +78,7 @@ public class SuperKeithTheMod
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            MenuScreens.register(ModMenuTypes.SOLDERING_STATION_MENU.get(), SolderingStationScreen::new);
         }
     }
 }

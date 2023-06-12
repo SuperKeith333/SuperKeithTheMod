@@ -1,0 +1,11 @@
+{
+  "type": "superkeiththemod:soldering",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "output": {
+    "item": "minecraft:diamond"
+  }
+}
