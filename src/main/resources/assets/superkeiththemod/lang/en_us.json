@@ -3,5 +3,8 @@
 
   "item.superkeiththemod.blank_circuit_board": "Blank Circuit Board",
   "item.superkeiththemod.solder": "Solder",
-  "item.superkeiththemod.usb_port": "USB Port"
+  "item.superkeiththemod.usb_port": "USB Port",
+  "item.superkeiththemod.soldering_iron": "Soldering_iron",
+
+  "block.superkeiththemod.soldering_station": "Soldering Station"
 }

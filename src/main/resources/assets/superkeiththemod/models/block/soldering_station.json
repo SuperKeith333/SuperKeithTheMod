@@ -1,0 +1,129 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "superkeiththemod:block/soldering_station_texture",
+		"particle": "superkeiththemod:block/soldering_station_texture"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 17, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 4.25], "texture": "#0"},
+				"east": {"uv": [4, 0, 8, 4.25], "texture": "#0"},
+				"south": {"uv": [0, 4.25, 4, 8.5], "texture": "#0"},
+				"west": {"uv": [4, 4.25, 8, 8.5], "texture": "#0"},
+				"up": {"uv": [12, 4, 8, 0], "texture": "#0"},
+				"down": {"uv": [12, 4, 8, 8], "texture": "#0"}
+			}
+		},
+		{
+			"from": [8.2, 23.66001, 9.08172],
+			"to": [8.7, 25.16001, 9.58172],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8.475, 20.93827, 8.72861]},
+			"faces": {
+				"north": {"uv": [5.75, 8.5, 6, 9], "texture": "#0"},
+				"east": {"uv": [6, 8.5, 6.25, 9], "texture": "#0"},
+				"south": {"uv": [6.25, 8.5, 6.5, 9], "texture": "#0"},
+				"west": {"uv": [6.5, 8.5, 6.75, 9], "texture": "#0"},
+				"up": {"uv": [7.5, 8.75, 7.25, 8.5], "texture": "#0"},
+				"down": {"uv": [7.75, 8.5, 7.5, 8.75], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7, 17, 8],
+			"to": [10, 18, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.475, 20.93827, 8.72861]},
+			"faces": {
+				"north": {"uv": [1.75, 8.5, 2.5, 8.75], "texture": "#0"},
+				"east": {"uv": [2.5, 8.5, 3.25, 8.75], "texture": "#0"},
+				"south": {"uv": [3.25, 8.5, 4, 8.75], "texture": "#0"},
+				"west": {"uv": [4, 8.5, 4.75, 8.75], "texture": "#0"},
+				"up": {"uv": [8.75, 8.75, 8, 8], "texture": "#0"},
+				"down": {"uv": [0.75, 8.5, 0, 9.25], "texture": "#0"}
+			}
+		},
+		{
+			"from": [8, 18, 9],
+			"to": [9, 21, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.475, 20.93827, 8.72861]},
+			"faces": {
+				"north": {"uv": [4.75, 8.5, 5, 9.25], "texture": "#0"},
+				"east": {"uv": [5, 8.5, 5.25, 9.25], "texture": "#0"},
+				"south": {"uv": [5.25, 8.5, 5.5, 9.25], "texture": "#0"},
+				"west": {"uv": [5.5, 8.5, 5.75, 9.25], "texture": "#0"},
+				"up": {"uv": [8, 8.75, 7.75, 8.5], "texture": "#0"},
+				"down": {"uv": [2, 8.75, 1.75, 9], "texture": "#0"}
+			}
+		},
+		{
+			"from": [7.9, 19.58592, 9.03893],
+			"to": [9.1, 23.58592, 10.03893],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8.475, 20.93827, 8.72861]},
+			"faces": {
+				"north": {"uv": [0.75, 8.5, 1, 9.5], "texture": "#0"},
+				"east": {"uv": [1, 8.5, 1.25, 9.5], "texture": "#0"},
+				"south": {"uv": [1.25, 8.5, 1.5, 9.5], "texture": "#0"},
+				"west": {"uv": [1.5, 8.5, 1.75, 9.5], "texture": "#0"},
+				"up": {"uv": [2.25, 9, 2, 8.75], "texture": "#0"},
+				"down": {"uv": [2.5, 8.75, 2.25, 9], "texture": "#0"}
+			}
+		},
+		{
+			"from": [8.1, 23.66001, 9.08172],
+			"to": [8.8, 23.66001, 9.78172],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8.475, 20.93827, 8.72861]},
+			"faces": {
+				"north": {"uv": [0, 0, 0.25, 0], "texture": "#0"},
+				"east": {"uv": [0, 0, 0.25, 0], "texture": "#0"},
+				"south": {"uv": [0, 0, 0.25, 0], "texture": "#0"},
+				"west": {"uv": [0, 0, 0.25, 0], "texture": "#0"},
+				"up": {"uv": [7, 8.75, 6.75, 8.5], "texture": "#0"},
+				"down": {"uv": [7.25, 8.5, 7, 8.75], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -2, -2],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -2.25, -2],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 90, 0],
+			"translation": [0, -1, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 90, 0],
+			"translation": [0, -0.25, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"ground": {
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"head": {
+			"scale": [0, 0, 0]
+		},
+		"fixed": {
+			"translation": [0, 0, -1.5],
+			"scale": [0.25, 0.25, 0.25]
+		}
+	},
+	"groups": [
+		0,
+		{
+			"name": "soldering_iron",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [1, 2, 3, 4, 5]
+		}
+	]
+}

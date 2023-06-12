@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "superkeiththemod:block/soldering_station",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "superkeiththemod:block/soldering_station"
+    },
+    "facing=south": {
+      "model": "superkeiththemod:block/soldering_station",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "superkeiththemod:block/soldering_station",
+      "y": 270
+    }
+  }
+}

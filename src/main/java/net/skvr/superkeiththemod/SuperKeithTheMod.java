@@ -11,6 +11,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.skvr.superkeiththemod.block.ModBlocks;
+import net.skvr.superkeiththemod.entity.ModTileEnitity;
 import net.skvr.superkeiththemod.items.ModCreativeModeTabs;
 import net.skvr.superkeiththemod.items.ModItems;
 import org.slf4j.Logger;
@@ -31,6 +33,8 @@ public class SuperKeithTheMod
         modEventBus.addListener(this::commonSetup);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModTileEnitity.register(modEventBus);
 
 
         // Register ourselves for server and other game events we are interested in
@@ -51,6 +55,7 @@ public class SuperKeithTheMod
             event.accept(ModItems.SOLDER);
             event.accept(ModItems.USB_PORT);
             event.accept(ModItems.SOLDERING_IRON);
+            event.accept(ModBlocks.SOLDERING_STATION);
         }
     }
 
