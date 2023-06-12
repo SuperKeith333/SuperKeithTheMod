@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#I#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:diorite"
+    },
+    "I": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "item": "superkeiththemod:usb_port"
+  }
+}

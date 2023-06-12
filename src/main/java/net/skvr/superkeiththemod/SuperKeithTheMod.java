@@ -48,6 +48,9 @@ public class SuperKeithTheMod
     {
         if (event.getTab() == ModCreativeModeTabs.SUPERKEITH_TAB){
             event.accept(ModItems.BLANK_CIRCUIT_BOARD);
+            event.accept(ModItems.SOLDER);
+            event.accept(ModItems.USB_PORT);
+            event.accept(ModItems.SOLDERING_IRON);
         }
     }
 

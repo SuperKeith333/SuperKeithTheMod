@@ -1,5 +1,7 @@
 {
   "creativemodetab.superkeiththemodtab": "SuperKeith the Mod",
 
-  "item.superkeiththemod.blank_circuit_board": "Blank Circuit Board"
+  "item.superkeiththemod.blank_circuit_board": "Blank Circuit Board",
+  "item.superkeiththemod.solder": "Solder",
+  "item.superkeiththemod.usb_port": "USB Port"
 }
