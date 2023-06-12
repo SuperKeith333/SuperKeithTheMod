@@ -8,7 +8,6 @@ import net.minecraftforge.registries.RegistryObject;
 import net.skvr.superkeiththemod.SuperKeithTheMod;
 
 public class ModItems {
-    // rwa
     public static final DeferredRegister<Item> ITEMS
             = DeferredRegister.create(ForgeRegistries.ITEMS, SuperKeithTheMod.MOD_ID);
 
