@@ -2,13 +2,13 @@
   "type": "superkeiththemod:soldering",
   "ingredients": [
     {
-      "item": "superkeiththemod:blank_circuit_board"
+      "item": "superkeiththemod:circuit_board_stage_2"
     },
     {
       "item": "superkeiththemod:usb_port"
     }
   ],
   "output": {
-    "item": "minecraft:iron_ingot"
+    "item": "superkeiththemod:circuit_board_stage_3"
   }
 }

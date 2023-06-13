@@ -1,0 +1,14 @@
+{
+  "type": "superkeiththemod:soldering",
+  "ingredients": [
+    {
+      "item": "superkeiththemod:blank_circuit_board"
+    },
+    {
+      "item": "superkeiththemod:usb_port"
+    }
+  ],
+  "output": {
+    "item": "superkeiththemod:circuit_board_stage_1"
+  }
+}

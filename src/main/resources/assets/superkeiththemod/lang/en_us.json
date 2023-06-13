@@ -2,6 +2,10 @@
   "creativemodetab.superkeiththemodtab": "SuperKeith the Mod",
 
   "item.superkeiththemod.blank_circuit_board": "Blank Circuit Board",
+  "item.superkeiththemod.circuit_board_stage_1": "Circuit Board - stage 1",
+  "item.superkeiththemod.circuit_board_stage_2": "Circuit Board - stage 2",
+  "item.superkeiththemod.circuit_board_stage_3": "Circuit Board - stage 3",
+  "item.superkeiththemod.raspberry_pi": "Raspberry pi",
   "item.superkeiththemod.solder": "Solder",
   "item.superkeiththemod.usb_port": "USB Port",
   "item.superkeiththemod.soldering_iron": "Soldering_iron",

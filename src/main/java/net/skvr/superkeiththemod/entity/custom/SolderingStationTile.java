@@ -21,6 +21,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.skvr.superkeiththemod.entity.ModTileEnitity;
+import net.skvr.superkeiththemod.items.ModItems;
 import net.skvr.superkeiththemod.recipe.SolderingStationRecipe;
 import net.skvr.superkeiththemod.screen.SolderingStationMenu;
 import org.jetbrains.annotations.NotNull;
@@ -113,14 +114,25 @@ public class SolderingStationTile extends BlockEntity implements MenuProvider {
                 return;
             } else {
                 if (recipe.get().getIngredients().size() > 0) {
-                    pEntity.itemHandler.extractItem(0, 1, false);
-                    pEntity.itemHandler.extractItem(1, 1, false);
+                    if(pEntity.itemHandler.getStackInSlot(1).getItem() == ModItems.USB_PORT.get()){
+                        pEntity.itemHandler.extractItem(0, 1, false);
+                        pEntity.itemHandler.extractItem(1, 1, false);
+                    } else {
+                        return;
+                    }
                 } else {
                     pEntity.itemHandler.extractItem(0, 1, false);
                 }
                 pEntity.itemHandler.getStackInSlot(2).setDamageValue(pEntity.itemHandler.getStackInSlot(2).getDamageValue() + 1);
                 pEntity.itemHandler.setStackInSlot(3, new ItemStack(recipe.get().getResultItem().getItem(),
                         pEntity.itemHandler.getStackInSlot(3).getCount() + 1));
+                if(pEntity.itemHandler.getStackInSlot(3).getItem() == ModItems.CIRCUIT_BOARD_STAGE_1.get()){
+                    pEntity.itemHandler.getStackInSlot(3).setDamageValue(13);
+                } else if (pEntity.itemHandler.getStackInSlot(3).getItem() == ModItems.CIRCUIT_BOARD_STAGE_2.get()){
+                    pEntity.itemHandler.getStackInSlot(3).setDamageValue(10);
+                } else if (pEntity.itemHandler.getStackInSlot(3).getItem() == ModItems.CIRCUIT_BOARD_STAGE_3.get()) {
+                    pEntity.itemHandler.getStackInSlot(3).setDamageValue(5);
+                }
 
                 pEntity.resetProgress();
             }

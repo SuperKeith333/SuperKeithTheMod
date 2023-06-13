@@ -1,0 +1,14 @@
+{
+  "type": "superkeiththemod:soldering",
+  "ingredients": [
+    {
+      "item": "superkeiththemod:circuit_board_stage_3"
+    },
+    {
+      "item": "superkeiththemod:usb_port"
+    }
+  ],
+  "output": {
+    "item": "superkeiththemod:raspberry_pi"
+  }
+}

@@ -59,7 +59,9 @@ public class SolderingStationRecipeCategory implements IRecipeCategory<Soldering
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, SolderingStationRecipe recipe, IFocusGroup focuses) {
         builder.addSlot(RecipeIngredientRole.INPUT, 7, 35).addIngredients(recipe.getIngredients().get(0));
-        if(recipe.getResultItem().getItem() == Items.IRON_INGOT){
+        if(recipe.getResultItem().getItem() == ModItems.CIRCUIT_BOARD_STAGE_1.get() ||
+                recipe.getResultItem().getItem() == ModItems.CIRCUIT_BOARD_STAGE_2.get() ||
+                recipe.getResultItem().getItem() == ModItems.CIRCUIT_BOARD_STAGE_3.get()){
             builder.addSlot(RecipeIngredientRole.INPUT, 33, 34).addItemStack(ModItems.USB_PORT.get().getDefaultInstance());
         }
         builder.addSlot(RecipeIngredientRole.INPUT, 56, 35).addItemStack(ModItems.SOLDER.get().getDefaultInstance());

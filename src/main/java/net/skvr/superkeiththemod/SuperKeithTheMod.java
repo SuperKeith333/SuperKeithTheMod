@@ -62,6 +62,10 @@ public class SuperKeithTheMod
             event.accept(ModItems.USB_PORT);
             event.accept(ModItems.SOLDERING_IRON);
             event.accept(ModBlocks.SOLDERING_STATION);
+            event.accept(ModItems.CIRCUIT_BOARD_STAGE_1);
+            event.accept(ModItems.CIRCUIT_BOARD_STAGE_2);
+            event.accept(ModItems.CIRCUIT_BOARD_STAGE_3);
+            event.accept(ModItems.RASPBERRY_PI);
         }
     }
 
