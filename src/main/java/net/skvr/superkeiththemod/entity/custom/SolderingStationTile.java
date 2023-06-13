@@ -13,13 +13,10 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
@@ -29,6 +26,7 @@ import net.skvr.superkeiththemod.screen.SolderingStationMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class SolderingStationTile extends BlockEntity implements MenuProvider {
@@ -104,15 +102,28 @@ public class SolderingStationTile extends BlockEntity implements MenuProvider {
             inventory.setItem(i, pEntity.itemHandler.getStackInSlot(i));
         }
 
+        assert level != null;
         Optional<SolderingStationRecipe> recipe = level.getRecipeManager()
                 .getRecipeFor(SolderingStationRecipe.Type.INSTANCE, inventory, level);
 
-        if(hasRecipe(pEntity)) {
-            pEntity.itemHandler.extractItem(0, 1, false);
-            pEntity.itemHandler.setStackInSlot(3, new ItemStack(recipe.get().getResultItem().getItem(),
-                    pEntity.itemHandler.getStackInSlot(3).getCount() + 1));
 
-            pEntity.resetProgress();
+
+        if(hasRecipe(pEntity)) {
+            if (pEntity.itemHandler.getStackInSlot(2).isEmpty()) {
+                return;
+            } else {
+                if (recipe.get().getIngredients().size() > 0) {
+                    pEntity.itemHandler.extractItem(0, 1, false);
+                    pEntity.itemHandler.extractItem(1, 1, false);
+                } else {
+                    pEntity.itemHandler.extractItem(0, 1, false);
+                }
+                pEntity.itemHandler.getStackInSlot(2).setDamageValue(pEntity.itemHandler.getStackInSlot(2).getDamageValue() + 1);
+                pEntity.itemHandler.setStackInSlot(3, new ItemStack(recipe.get().getResultItem().getItem(),
+                        pEntity.itemHandler.getStackInSlot(3).getCount() + 1));
+
+                pEntity.resetProgress();
+            }
         }
     }
 
@@ -123,8 +134,10 @@ public class SolderingStationTile extends BlockEntity implements MenuProvider {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
+        assert level != null;
         Optional<SolderingStationRecipe> recipe = level.getRecipeManager()
                 .getRecipeFor(SolderingStationRecipe.Type.INSTANCE, inventory, level);
+
 
 
         return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
@@ -132,7 +145,7 @@ public class SolderingStationTile extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    public Component getDisplayName() {
+    public @NotNull Component getDisplayName() {
         return Component.literal("Soldering Station");
     }
     @Override
@@ -164,7 +177,7 @@ public class SolderingStationTile extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    public void load(CompoundTag nbt) {
+    public void load(@NotNull CompoundTag nbt) {
         super.load(nbt);
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
         progress = nbt.getInt("soldering_station.progress");
@@ -175,20 +188,21 @@ public class SolderingStationTile extends BlockEntity implements MenuProvider {
             inventory.setItem(i, itemHandler.getStackInSlot(i));
         }
 
-        Containers.dropContents(this.level, this.worldPosition, inventory);
+        assert this.level != null;
+        Containers.dropContents(Objects.requireNonNull(this.level), this.worldPosition, inventory);
     }
 
     @Nullable
     @Override
-    public AbstractContainerMenu createMenu(int id, Inventory inventory, Player p_39956_) {
+    public AbstractContainerMenu createMenu(int id, @NotNull Inventory inventory, @NotNull Player p_39956_) {
         return new SolderingStationMenu(id, inventory, this, this.data);
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {
-        return inventory.getItem(2).getItem() == stack.getItem() || inventory.getItem(2).isEmpty();
+        return inventory.getItem(3).getItem() == stack.getItem() || inventory.getItem(3).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(2).getMaxStackSize() > inventory.getItem(2).getCount();
+        return inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount();
     }
 }

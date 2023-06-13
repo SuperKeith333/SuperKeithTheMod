@@ -11,7 +11,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.skvr.superkeiththemod.block.ModBlocks;
 import net.skvr.superkeiththemod.entity.custom.SolderingStationTile;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 
 public class SolderingStationMenu extends AbstractContainerMenu {
     public final SolderingStationTile blockEntity;
@@ -34,8 +34,8 @@ public class SolderingStationMenu extends AbstractContainerMenu {
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 7, 35));
-            this.addSlot(new SlotItemHandler(handler, 1, 32, 34));
-            this.addSlot(new SlotItemHandler(handler, 2, 57, 35));
+            this.addSlot(new SlotItemHandler(handler, 1, 33, 34));
+            this.addSlot(new SlotItemHandler(handler, 2, 56, 35));
             this.addSlot(new SlotItemHandler(handler, 3, 116, 35));
         });
 
@@ -58,7 +58,7 @@ public class SolderingStationMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
 
     @Override
-    public ItemStack quickMoveStack(Player playerIn, int index) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
         Slot sourceSlot = slots.get(index);
         if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
         ItemStack sourceStack = sourceSlot.getItem();
@@ -99,14 +99,14 @@ public class SolderingStationMenu extends AbstractContainerMenu {
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 17));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 143));
         }
     }
 

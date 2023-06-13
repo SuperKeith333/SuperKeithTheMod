@@ -3,6 +3,9 @@
   "ingredients": [
     {
       "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:diamond"
     }
   ],
   "output": {

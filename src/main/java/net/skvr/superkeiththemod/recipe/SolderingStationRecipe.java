@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.skvr.superkeiththemod.SuperKeithTheMod;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
@@ -26,21 +27,21 @@ public class SolderingStationRecipe implements Recipe<SimpleContainer> {
         this.recipeItems = recipeItems;
     }
     @Override
-    public NonNullList<Ingredient> getIngredients() {
+    public @NotNull NonNullList<Ingredient> getIngredients() {
         return recipeItems;
     }
 
     @Override
-    public boolean matches(SimpleContainer pContainer, Level pLevel) {
+    public boolean matches(@NotNull SimpleContainer pContainer, Level pLevel) {
         if(pLevel.isClientSide()) {
             return false;
         }
 
-        return recipeItems.get(0).test(pContainer.getItem(0));
+        return recipeItems.get(0).test(pContainer.getItem(1));
     }
 
     @Override
-    public ItemStack assemble(SimpleContainer pContainer) {
+    public @NotNull ItemStack assemble(@NotNull SimpleContainer pContainer) {
         return output;
     }
 
@@ -50,21 +51,21 @@ public class SolderingStationRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public ItemStack getResultItem() {
+    public @NotNull ItemStack getResultItem() {
         return output.copy();
     }
 
     @Override
-    public ResourceLocation getId() {
+    public @NotNull ResourceLocation getId() {
         return id;
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
+    public @NotNull RecipeSerializer<?> getSerializer() {
         return Serializer.INSTANCE;
     }
     @Override
-    public RecipeType<?> getType() {
+    public @NotNull RecipeType<?> getType() {
         return Type.INSTANCE;
     }
     public static class Type implements RecipeType<SolderingStationRecipe> {
@@ -78,7 +79,7 @@ public class SolderingStationRecipe implements Recipe<SimpleContainer> {
                 new ResourceLocation(SuperKeithTheMod.MOD_ID, "soldering");
 
         @Override
-        public SolderingStationRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
+        public @NotNull SolderingStationRecipe fromJson(@NotNull ResourceLocation pRecipeId, @NotNull JsonObject pSerializedRecipe) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
@@ -92,7 +93,7 @@ public class SolderingStationRecipe implements Recipe<SimpleContainer> {
         }
 
         @Override
-        public @Nullable SolderingStationRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+        public @Nullable SolderingStationRecipe fromNetwork(@NotNull ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
