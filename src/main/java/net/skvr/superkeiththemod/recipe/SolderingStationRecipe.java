@@ -37,7 +37,7 @@ public class SolderingStationRecipe implements Recipe<SimpleContainer> {
             return false;
         }
 
-        return recipeItems.get(0).test(pContainer.getItem(1));
+        return recipeItems.get(0).test(pContainer.getItem(0));
     }
 
     @Override

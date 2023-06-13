@@ -33,7 +33,13 @@ public class SolderingStationScreen extends AbstractContainerScreen<SolderingSta
 
         this.blit(pPoseStack, x, y, 0, 0, imageWidth, imageHeight);
 
+        renderProgressArrow(pPoseStack, x, y);
+    }
 
+    private void renderProgressArrow(PoseStack pPoseStack, int x, int y) {
+        if(menu.isCrafting()) {
+            blit(pPoseStack, x + 80, y + 20, 176, 0, menu.getScaledProgress(), 31);
+        }
     }
 
 
